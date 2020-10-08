@@ -1,0 +1,29 @@
+/* this has linked successfully */
+body {
+  padding: 0;
+  margin: 0;
+  justify: center;
+}
+.main-container {
+  display: grid;
+  grid-template-columns: 30% 25% 25% 20%;
+  position: absolute;
+  top: 2em;
+  bottom: 0;
+  width: 100%;
+}
+
+[class*=color-swatch] {
+  position: relative;
+  border: 3px solid blue;
+}
+input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  max-height: 20px;
+  letter-spacing: 3px;
+}
