@@ -1,11 +1,28 @@
-//get main container created in the begin.js file
-const container = document.querySelector('.main-container');
+//get containers
+const headerContainer = document.querySelector('.header-container');
+const mainContainer = document.querySelector('.main-container');
+const footerContainer = document.querySelector('.footer-container');
+
+document.body.style.height = window.innerHeight
+// helper method to create and append new elements dynamically
+const createElementAndAppend = (element, attributes, parent) => {
+  const child = document.createElement(element)
+
+  for (const key in attributes) {
+    child.setAttribute(key, attributes[key])
+  }
+
+  parent.appendChild(child)
+}
+
 
 //create swatches for displaying color and append to the main container.
-for (var i = 1; i < 5; i++) {
+const quantityOfSwatches = 4
+
+for (var i = 0; i < quantityOfSwatches; i++) {
   createElementAndAppend('div', {
     class:`color-swatch-${i}`,
-  }, container)
+  }, mainContainer)
 }
 
 //get the swatches created in last step

@@ -1,23 +1,47 @@
 /* this has linked successfully */
 body {
-  padding: 0;
   margin: 0;
-  justify: center;
+  padding: 0;
 }
-.main-container {
-  display: grid;
-  grid-template-columns: 30% 25% 25% 20%;
+
+.app-container {
+  background-color: white;
   position: absolute;
-  top: 2em;
+  top: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  display: grid;
+  grid-template-columns: 2% repeat(4, 1fr)  2%;
+  grid-template-rows: 10% auto 5%;
+  grid-template-areas:
+    "header header header header header header"
+    ". main main main main ."
+    "footer footer footer footer footer footer";
+}
+
+.header-container {
+  grid-area: header;
+}
+
+.main-container {
+  grid-area: main;
+  border-radius: 5%/10%;
+  background-color: red;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.footer-container {
+  grid-area: footer;
 }
 
 [class*=color-swatch] {
-  position: relative;
-  border: 3px solid blue;
+  background-color: blue;
+  border: 1px solid black;
 }
-input {
+
+[class*=color-swatch] > input {
   position: absolute;
   top: 0;
   right: 0;
@@ -26,4 +50,9 @@ input {
   margin: auto;
   max-height: 20px;
   letter-spacing: 3px;
+}
+.quantity-input {
+  margin-top: .25em;
+  margin-left: .25em;
+  width: 3em;
 }
