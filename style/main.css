@@ -1,4 +1,4 @@
-/* this has linked successfully */
+
 body {
   margin: 0;
   padding: 0;
@@ -26,10 +26,7 @@ body {
 
 .main-container {
   grid-area: main;
-  border-radius: 5%/10%;
-  background-color: red;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer-container {
@@ -37,22 +34,29 @@ body {
 }
 
 [class*=color-swatch] {
-  background-color: blue;
+  position: relative;
+  /* background-color: blue; */
   border: 1px solid black;
+  display: grid;
 }
 
-[class*=color-swatch] > input {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  max-height: 20px;
+.hex-input-div {
+  justify-self: center;
+  align-self: center;
+}
+
+.hex-input {
   letter-spacing: 3px;
 }
+
 .quantity-input {
   margin-top: .25em;
   margin-left: .25em;
   width: 3em;
+}
+
+@media screen and (max-width: 600px) {
+  .main-container {
+    grid-template-columns: 100%
+  }
 }

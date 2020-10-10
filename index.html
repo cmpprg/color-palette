@@ -9,9 +9,27 @@
 
   <body>
     <div class="app-container">
-      <div class="header-container"></div>
+
+      <div class="header-container">
+          <div class="swatch-quantity-input">
+            <p>Please, select how many swatches you would like.</p>
+            <input type="radio" id="two-swatches" name="swatch-quantity" value="2">
+            <label for="two-swatches">2</label>
+            <input type="radio" id="three-swatches" name="swatch-quantity" value="3">
+            <label for="three-swatches">3</label>
+            <input type="radio" id="four-swatches" name="swatch-quantity" value="4" checked="true">
+            <label for="four-swatches">4</label>
+            <input type="radio" id="five-swatches" name="swatch-quantity" value="5">
+            <label for="five-swatches">5</label>
+            <input type="radio" id="six-swatches" name="swatch-quantity" value="6">
+            <label for="six-swatches">6</label>
+          </div>
+      </div>
+
       <div class="main-container"></div>
+
       <div class="footer-container"></div>
+
     </div>
     <script src="./js/main.js"></script>
   </body>
