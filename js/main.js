@@ -7,7 +7,6 @@ const mainContainer = document.querySelector('.main-container');
 const footerContainer = document.querySelector('.footer-container');
 //get radio buttons
 const radioButtons = document.querySelectorAll(".header-container input[type='radio']")
-
 // ************************************************
 // *****************HELPER METHODS*****************
 // ************************************************
@@ -116,7 +115,7 @@ const constructMainContainer = (quantity) => {
   const colorSwatches = document.querySelectorAll('[class^=color-swatch]')
   //create hex inputs
   colorSwatches.forEach((colorSwatch, index) => {
-    createHexInput(colorSwatch, index, "#");
+    createHexInput(colorSwatch, index, "#-");
   });
   //apply colorEvent to the paired inputs and color swatches.
   colorSwatches.forEach((colorSwatch, i) => {
@@ -126,7 +125,7 @@ const constructMainContainer = (quantity) => {
 }
 
 //begin all actions below:
-const windowSizeforOrientationChange = 650
+const windowSizeforOrientationChange = 860
 let swatchQuantity = 4;
 
 
@@ -150,8 +149,7 @@ radioButtons.forEach( button => {
 
 //dynamically switch between vertical and horizontal setup if window is resied
 window.onresize = () => {
-  console.log(windw.innerWidth)
-  orientMainGridBasedOnWindowSize(quantity, windowSizeforOrientationChange);
+  orientMainGridBasedOnWindowSize(swatchQuantity, windowSizeforOrientationChange);
 };
 
 

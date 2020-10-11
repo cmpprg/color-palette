@@ -5,7 +5,6 @@ body {
 }
 
 .app-container {
-  background-color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -21,7 +20,12 @@ body {
 }
 
 .header-container {
+  max-height: 10%;
   grid-area: header;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-template-areas: 'header-left header-center header-right';
 }
 
 .main-container {
@@ -35,8 +39,7 @@ body {
 
 [class*=color-swatch] {
   position: relative;
-  /* background-color: blue; */
-  border: 1px solid black;
+  border: 1px dotted #ccc;
   display: grid;
 }
 
@@ -49,14 +52,23 @@ body {
   letter-spacing: 3px;
 }
 
-.quantity-input {
-  margin-top: .25em;
-  margin-left: .25em;
-  width: 3em;
+.swatch-quantity-input {
+  justify-self: center;
+  align-self: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "t"
+    "r";
 }
 
-@media screen and (max-width: 600px) {
-  .main-container {
-    grid-template-columns: 100%
-  }
+.swatch-quanity-input p {
+  grid-area: 't';
+}
+
+.inputs {
+  grid-area: 'r';
+  display: grid;
+  grid-template-columns: repeat(10, 1fr)
 }
