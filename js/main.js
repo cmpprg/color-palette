@@ -52,7 +52,7 @@ const createHexInput = (swatch, index, label) => {
     name: `hex-input-${index}`,
     value: 'ffffff',
     maxlength: '6',
-    size: '5'
+    size: '7'
   }, hexInputDiv)
 };
 //define adding a listener to change color of swatch when hex input changes
@@ -72,7 +72,7 @@ const setGridTemplateByQuantityOfSwatches = (quantity) => {
   if (quantity === 2) {
     return '1.5fr 1fr'
   } else if (quantity === 6) {
-    return '1.5fr repeat(2, 1.25fr) repeat(2, 1fr) .5fr'
+    return '2fr repeat(2, 1.25fr) 1fr .75fr .5fr'
   } else {
     return `1.5fr repeat(${quantity - 2}, 1fr) .5fr`
   }
@@ -104,9 +104,6 @@ const clearAndConstructMainContainer = (quantityOfSwatches) => {
   clearMainContainer();
   constructMainContainer(quantityOfSwatches);
 }
-// ************************************************
-// *****************Main Container*****************
-// ************************************************
 
 const constructMainContainer = (quantity) => {
   //create swatches for displaying color and append to the main container.
@@ -115,7 +112,7 @@ const constructMainContainer = (quantity) => {
   const colorSwatches = document.querySelectorAll('[class^=color-swatch]')
   //create hex inputs
   colorSwatches.forEach((colorSwatch, index) => {
-    createHexInput(colorSwatch, index, "#-");
+    createHexInput(colorSwatch, index, "#");
   });
   //apply colorEvent to the paired inputs and color swatches.
   colorSwatches.forEach((colorSwatch, i) => {
@@ -124,17 +121,18 @@ const constructMainContainer = (quantity) => {
   });
 }
 
+//************************
 //begin all actions below:
-const windowSizeforOrientationChange = 860
+//************************
+const windowSizeforOrientationChange = 1050
 let swatchQuantity = 4;
-
 
 //check size of screen in begining and size grid vertical or horizontal accordingly
 document.body.onload = () => {
-  console.log('hello')
   orientMainGridBasedOnWindowSize(swatchQuantity, windowSizeforOrientationChange);
 };
 
+//initial set up of Main Container
 clearAndConstructMainContainer(swatchQuantity)
 
 //listen to see if user changes swatch quantity via radio buttons.
@@ -151,8 +149,3 @@ radioButtons.forEach( button => {
 window.onresize = () => {
   orientMainGridBasedOnWindowSize(swatchQuantity, windowSizeforOrientationChange);
 };
-
-
-// ************************************************
-// *****************Footer Container*****************
-// ************************************************

@@ -39,17 +39,27 @@ body {
 
 [class*=color-swatch] {
   position: relative;
-  border: 1px dotted #ccc;
+  border: 1px dotted #eee;
   display: grid;
 }
 
 .hex-input-div {
   justify-self: center;
   align-self: center;
+  font-weight: bold;
+  font-family: avenir;
+  font-size: 1.1em;
 }
 
 .hex-input {
-  letter-spacing: 3px;
+
+}
+
+/**** HEADER STUFF ****/
+.dark-light-mode {
+  background-color: pink;
+  justify-self: center;
+  align-self: center;
 }
 
 .swatch-quantity-input {
