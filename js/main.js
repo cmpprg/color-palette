@@ -6,7 +6,10 @@ const headerContainer = document.querySelector('.header-container');
 const mainContainer = document.querySelector('.main-container');
 const footerContainer = document.querySelector('.footer-container');
 //get radio buttons
-const radioButtons = document.querySelectorAll(".header-container input[type='radio']")
+const radioButtons = document.querySelectorAll(".header-container input[type='radio']");
+//get mode buttons
+const modeButton = document.querySelector(".mode-button");
+
 // ************************************************
 // *****************HELPER METHODS*****************
 // ************************************************
@@ -25,7 +28,7 @@ const createElementAndAppend = (element, attributes, parent) => {
 const createSwatches = (quantity, container) => {
   for (var i = 0; i < quantity; i++) {
     createElementAndAppend('div', {
-      class:`color-swatch-${i}`,
+      class:`color-swatch-${i}`
     }, mainContainer)
   };
 };
@@ -55,13 +58,22 @@ const createHexInput = (swatch, index, label) => {
     size: '7'
   }, hexInputDiv)
 };
+//define method that returns boolean about wether or not light mode is engaged.
+const lightModeActive = () => {
+  return (document.body.classList.contains('light') ? true : false);
+}
+//define method that returns hex white lightModeActive, black otherwise
+const returnWhiteIfLightMode = () => {
+  return (lightModeActive() ? '#fff' : '#000');
+}
 //define adding a listener to change color of swatch when hex input changes
 const colorEvent = (input, swatch) => {
   input.addEventListener('input', () => {
     let hexValue = '#' + input.value;
 
     if (!input.value) {
-      swatch.style.backgroundColor = '#ffffff';
+      console.log(returnWhiteIfLightMode())
+      swatch.style.backgroundColor = returnWhiteIfLightMode();
     }
 
     swatch.style.border = 'none';
@@ -104,7 +116,7 @@ const clearAndConstructMainContainer = (quantityOfSwatches) => {
   clearMainContainer();
   constructMainContainer(quantityOfSwatches);
 }
-
+//define method that constructs swatches.
 const constructMainContainer = (quantity) => {
   //create swatches for displaying color and append to the main container.
   createSwatches(quantity, mainContainer)
@@ -149,3 +161,19 @@ radioButtons.forEach( button => {
 window.onresize = () => {
   orientMainGridBasedOnWindowSize(swatchQuantity, windowSizeforOrientationChange);
 };
+
+//change background dark and light on button push.
+
+modeButton.onclick = () => {
+  const nodesToToggle = [modeButton, document.body, mainContainer]
+
+  if (lightModeActive()) {
+    nodesToToggle.forEach( node => {
+      node.classList.replace('light', 'dark');
+    })
+  } else {
+    nodesToToggle.forEach( node => {
+      node.classList.replace('dark', 'light');
+    })
+  }
+}
