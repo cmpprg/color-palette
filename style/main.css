@@ -3,7 +3,14 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.light {
+  background-color: #fff;
+  color: #000;
+}
+.dark {
+  background-color: #000;
+  color: #fff;
+}
 .app-container {
   position: absolute;
   top: 0;
@@ -39,17 +46,44 @@ body {
 
 [class*=color-swatch] {
   position: relative;
-  border: 1px dotted #ccc;
+  border: 0.1em dotted #eee;
   display: grid;
 }
 
 .hex-input-div {
   justify-self: center;
   align-self: center;
+  font-weight: bold;
+  font-family: avenir;
+  font-size: 1.1em;
 }
 
-.hex-input {
-  letter-spacing: 3px;
+/**** HEADER STUFF ****/
+/* DARK LIGHT MODE BUTTON */
+.mode-button {
+  border-radius: 5%/10%;
+  justify-self: center;
+  align-self: center;
+}
+.mode-button.light {
+  border: 0.1em solid #eee;
+}
+.mode-button.light:hover {
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+}
+.mode-button.dark {
+  border: 0.1em solid #fff;
+}
+.mode-button.dark:hover {
+  cursor: pointer;
+  background-color: #fff;
+  color: #000;
+}
+.mode-button p {
+  margin: 0;
+  padding: 1em;
 }
 
 .swatch-quantity-input {
@@ -62,11 +96,9 @@ body {
     "t"
     "r";
 }
-
 .swatch-quanity-input p {
   grid-area: 't';
 }
-
 .inputs {
   grid-area: 'r';
   display: grid;
